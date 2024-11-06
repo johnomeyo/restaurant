@@ -3,7 +3,10 @@ import { StyleSheet, FlatList, Dimensions, Text } from 'react-native';
 import FoodCard from './food-card';
 
 const data = [
-    <FoodCard></FoodCard>
+    <FoodCard></FoodCard>,
+    <FoodCard></FoodCard>,
+    <FoodCard></FoodCard>,
+    <FoodCard></FoodCard>,
 ]
 
 const { width } = Dimensions.get('window'); // Get screen width
