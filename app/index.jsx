@@ -1,45 +1,25 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
-import AppBar from '../components/appbar';
-import OfferCard from '../components/offer_card';
-import CategoriesSection from '../components/categories_section';
-import RecommedSection from '../components/recommended-section';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import FoodDetailsPage from './food_details.jsx';
+import Homepage from './homepage.jsx';
+
+
+const Stack = createNativeStackNavigator();
 const App = () => {
     return (
-        <SafeAreaView style={styles.safeArea}>
-            <ScrollView>
-                <View style={styles.container}>
-                    <AppBar></AppBar>
-                    <OfferCard></OfferCard>
-                    <CategoriesSection />
-                    <RecommedSection />
-                </View>
-            </ScrollView>
-        </SafeAreaView>
+
+        <Stack.Navigator initialRouteName='Home' screenOptions={{
+            headerStyle: { backgroundColor: '#F5F5F5',height: 100,   }, // Set the global app bar background color
+            headerShadowVisible: false,
+            headerTitle: '',
+            headerShown: false,
+        }}>
+            <Stack.Screen name="home" component={Homepage} />
+            <Stack.Screen name="details" component={FoodDetailsPage} />
+        </Stack.Navigator>
     );
 };
 
-const styles = StyleSheet.create({
-    safeArea: {
-        flex: 1,
-      },
-    container: {
-        flex: 1,
-        backgroundColor: '#F5F5F5'
-    },
-    scaffold: {
-        paddingVertical: 20,
-    },
-    sectionTitle: {
-        fontWeight: "bold",
-        fontSize: 24,
-        paddingTop: 80,
-        paddingLeft: 16
-    },
-    taskList: {
-        paddingHorizontal: 16,
-    }
-});
 
 export default App;
