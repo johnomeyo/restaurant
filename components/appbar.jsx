@@ -1,43 +1,48 @@
-import React from 'react'
+import React, { memo } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
+
+const IconWrapper = ({ name, size, color }) => (
+    <View style={styles.iconBackground}>
+        <Ionicons name={name} size={size} color={color} />
+    </View>
+);
+
 const AppBar = () => {
     return (
         <View style={styles.appbar}>
-           <View style={styles.iconBackground}>
-           <Ionicons name="search" size={25} color="grey" />
-           </View>
-            <View style={styles.title}>
+            <IconWrapper name="search" size={ICON_SIZE} color="grey" />
+            <View>
                 <Text style={styles.locationText}>Location</Text>
-                <Text>Napville, Illinois</Text>
+                <Text>Naperville, Illinois</Text>
             </View>
-            <View style={styles.iconBackground}>
-           <Ionicons name="bookmark-outline" size={25} color="grey" />
-           </View>
+            <IconWrapper name="bookmark-outline" size={ICON_SIZE} color="grey" />
         </View>
-    )
-}
+    );
+};
+
+// Constants
+const ICON_SIZE = 25;
+
+// Styles
 const styles = StyleSheet.create({
     appbar: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 16,
-        // paddingTop: 20,
-    },
-    title: {
-
     },
     locationText: {
         color: 'grey',
         fontSize: 16,
     },
-    iconBackground:{
-        backgroundColor:'white',
-        height:50,
-        width:50,
-        alignItems:'center',
-        justifyContent:'center',
+    iconBackground: {
+        backgroundColor: 'white',
+        height: 50,
+        width: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
         borderRadius: 25,
-    }
-})
-export default AppBar
+    },
+});
+
+export default memo(AppBar);
