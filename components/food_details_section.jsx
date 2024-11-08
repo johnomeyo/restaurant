@@ -1,51 +1,65 @@
-import React from 'react'
-import { Text, StyleSheet, View } from 'react-native';
+import React from 'react';
+import { Text, StyleSheet, View, TouchableOpacity } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
+// Reusable component for nutrition information
+const InfoItem = ({ figure, unit }) => (
+    <View style={styles.info}>
+        <Text style={styles.figures}>{figure}</Text>
+        <Text style={styles.units}>{unit}</Text>
+    </View>
+);
+
 const FoodDetailsSection = () => {
+    const handleAddToCart = () => console.log("Added to cart");
+    const handleBuyNow = () => console.log("Buying now");
+
     return (
         <View>
             <Text style={styles.name}>Double Beef Cheese Burger</Text>
+
+            {/* Location Section */}
             <View style={styles.location}>
-                <Ionicons name="location" size={17} color="grey" onPress={() => console.log("Added to cart")} />
+                <Ionicons
+                    name="location"
+                    size={17}
+                    color="grey"
+                    onPress={handleAddToCart}
+                    accessible
+                    accessibilityLabel="Location Icon"
+                />
                 <Text style={styles.locationText}>Naperville, Illinois</Text>
             </View>
+
+            {/* Food Information */}
             <View style={styles.foodInfo}>
-                <View style={styles.info}>
-                    <Text style={styles.figures}>198</Text>
-                    <Text style={styles.units}>kcal</Text>
-                </View>
+                <InfoItem figure="198" unit="kcal" />
                 <View style={styles.line} />
-                <View style={styles.info}>
-                    <Text style={styles.figures}>25.2</Text>
-                    <Text style={styles.units}>proteins</Text>
-                </View>
+                <InfoItem figure="25.2" unit="proteins" />
                 <View style={styles.line} />
-                <View style={styles.info}>
-                    <Text style={styles.figures}>13.8</Text>
-                    <Text style={styles.units}>fats</Text>
-                </View>
+                <InfoItem figure="13.8" unit="fats" />
                 <View style={styles.line} />
-                <View style={styles.info}>
-                    <Text style={styles.figures}>23.7</Text>
-                    <Text style={styles.units}>carbo</Text>
-                </View>
+                <InfoItem figure="23.7" unit="carbo" />
             </View>
 
+            {/* Description Section */}
             <Text style={styles.description}>Description</Text>
-            <Text style={styles.descriptionText}>Burger with patty filled with macaroni & cheese and real beef, Stroganoff sauce, topped with onions, served on a soft black sesame burger bun</Text>
+            <Text style={styles.descriptionText}>
+                Burger with patty filled with macaroni & cheese and real beef, Stroganoff sauce, topped with onions, served on a soft black sesame burger bun
+            </Text>
 
+            {/* Buy Section */}
             <View style={styles.buy}>
-                <View style={styles.iconCircle}>
-                    <Ionicons name="bag-outline" size={24} color="grey" onPress={() => console.log("Heart Pressed")} />
-                </View>
-                <View style={styles.btn}>
+                <TouchableOpacity style={styles.iconCircle} onPress={handleAddToCart}>
+                    <Ionicons name="bag-outline" size={24} color="grey" accessible accessibilityLabel="Add to Cart" />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.btn} onPress={handleBuyNow}>
                     <Text style={styles.btnText}>BUY NOW</Text>
-                </View>
+                </TouchableOpacity>
             </View>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     name: {
@@ -53,7 +67,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     line: {
-        height: '60%', backgroundColor: 'grey', // Line color
+        height: '60%',
+        backgroundColor: 'grey',
         width: 1,
     },
     location: {
@@ -73,7 +88,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         padding: 12,
         marginVertical: 10,
-        borderRadius: 12
+        borderRadius: 12,
     },
     description: {
         fontSize: 22,
@@ -82,15 +97,11 @@ const styles = StyleSheet.create({
     descriptionText: {
         color: 'grey',
         fontSize: 17,
-        marginVertical: 10
-    },
-    image: {
-        width: 100,
-        height: 100,
-        alignSelf: 'center',
+        marginVertical: 10,
     },
     buy: {
-        flexDirection: "row", marginVertical: 10
+        flexDirection: 'row',
+        marginVertical: 10,
     },
     iconCircle: {
         backgroundColor: 'white',
@@ -103,23 +114,25 @@ const styles = StyleSheet.create({
         borderColor: '#bdbdbd',
         marginRight: 20,
     },
-    btnText: {
-        color: 'white'
-    },
     btn: {
         height: 50,
         justifyContent: 'center',
         backgroundColor: 'green',
         alignItems: 'center',
         width: 200,
-        borderRadius: 18
+        borderRadius: 18,
+    },
+    btnText: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 16,
     },
     figures: {
         fontWeight: '700',
     },
     units: {
-        color: 'grey'
-    }
+        color: 'grey',
+    },
 });
 
-export default FoodDetailsSection
+export default FoodDetailsSection;
