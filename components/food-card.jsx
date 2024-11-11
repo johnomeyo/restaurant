@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontWeight: '700',
-    },
+    }, 
     iconContainer: {
         alignItems: 'flex-end',
     },

@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import FoodDetailsPage from './food_details.jsx';
 import Homepage from './homepage.jsx';
+import CartPage from './cart_page.jsx';
 
 
 const Stack = createNativeStackNavigator();
@@ -17,6 +18,7 @@ const App = () => {
         }}>
             <Stack.Screen name="home" component={Homepage} />
             <Stack.Screen name="details" component={FoodDetailsPage} />
+            <Stack.Screen name="cartpage" component={CartPage} />
         </Stack.Navigator>
     );
 };

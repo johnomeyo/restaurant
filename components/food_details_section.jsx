@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text, StyleSheet, View, TouchableOpacity } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
+
 
 // Reusable component for nutrition information
 const InfoItem = ({ figure, unit }) => (
@@ -10,9 +12,15 @@ const InfoItem = ({ figure, unit }) => (
     </View>
 );
 
+
+
 const FoodDetailsSection = () => {
-    const handleAddToCart = () => console.log("Added to cart");
+    // const handleAddToCart = () => console.log("Added to cart");
     const handleBuyNow = () => console.log("Buying now");
+    const navigation = useNavigation();
+
+    // Memoize navigation function to avoid unnecessary re-renders
+    const handleAddToCart = () => navigation.navigate('cartpage');
 
     return (
         <View>
