@@ -1,16 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-const CartListTile = ( props) => {
+const CartListTile = ({ img, color, name, price }) => {
     return (
         <View style={styles.listTile}>
             <Image
                 style={styles.image}
-                source={{ uri:props.img }} />
+                source={{ uri: img }}  // Directly use the img prop
+            />
             <View style={styles.details}>
-                <Text style={styles.category}>{props.color} Color</Text>
-                <Text style={styles.name}>{props.name}</Text>
-                <Text style={styles.price}>${props.price}</Text>
+                <Text style={[styles.category, { color: color.toLowerCase() }]}>{color} Color</Text> 
+                <Text style={styles.name}>{name}</Text>
+                <Text style={styles.price}>${price}</Text>
             </View>
             <View style={styles.items}>
                 <TouchableOpacity onPress={() => console.log("Reduced")}>
@@ -28,35 +29,35 @@ const CartListTile = ( props) => {
         </View>
     );
 };
+
 const styles = StyleSheet.create({
     listTile: {
         marginHorizontal: 16,
-        flexDirection: "row",
+        flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: 'white',
         padding: 10,
         borderRadius: 12,
-        marginVertical: 8
-
+        marginVertical: 8,
     },
     imgCont: {
         height: 100,
         width: 100,
         backgroundColor: 'red',
-        borderRadius: 8
+        borderRadius: 8,
     },
     details: {
         height: 100,
         width: 150,
         justifyContent: 'space-between',
-        paddingVertical: 10
+        paddingVertical: 10,
     },
     items: {
         height: 100,
         width: 100,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     image: {
         width: 100,
@@ -72,7 +73,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#bdbdbd',
     },
     category: {
-        color: 'orange',
         fontWeight: 'bold',
         fontSize: 10,
     },
@@ -82,7 +82,8 @@ const styles = StyleSheet.create({
     },
     price: {
         fontWeight: 'bold',
-        color: 'grey'
+        color: 'grey',
     },
-})
+});
+
 export default CartListTile;
