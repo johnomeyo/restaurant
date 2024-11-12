@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import CustomButton from './CustomBtn'
-const ItemCard = () => {
+const ItemCard = ({image, title, price}) => {
     const navigation = useNavigation();
 
     const navigateToDetails = () => navigation.navigate('details')
@@ -12,13 +12,13 @@ const ItemCard = () => {
         <TouchableOpacity onPress={navigateToDetails} activeOpacity={0.8}>
             <View style={styles.card}>
                 <View style={styles.imgContainer}>
-                    <Image source={{ uri: 'https://img.icons8.com/?size=100&id=CnSNqm9PSk6K&format=png&color=000000' }}
+                    <Image source={{ uri: image}}
                         style={styles.image}
                     />
                 </View>
-                <Text style={styles.text}> Aalto Chair</Text>
+                <Text style={styles.text}>{title}</Text>
                 <View style={styles.addToCart}>
-                    <Text style={styles.price}>$39</Text>
+                    <Text style={styles.price}>${price}</Text>
                     <CustomButton title="Add to cart" />
                 </View>
             </View>

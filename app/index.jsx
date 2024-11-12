@@ -1,7 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import FoodDetailsPage from './food_details.jsx';
 import Homepage from './homepage.jsx';
 import CartPage from './cart_page.jsx';
 import ItemDetailsPage from './ItemDetailsPage.jsx';
