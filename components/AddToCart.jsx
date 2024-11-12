@@ -11,7 +11,7 @@ const AddToCartSection = () => {
 
     return (
         <View style={styles.container}>
-            <CustomButton title="Add to Cart" onPress={handleAddToCart} color="black" />
+            <CustomButton title="Add to Cart" onPress={handleAddToCart} color="#5b8078" />
             <TouchableOpacity style={styles.iconCircle} onPress={handleAddToCart}>
                 <Ionicons name="cart-outline" size={24} color="grey" />
             </TouchableOpacity>

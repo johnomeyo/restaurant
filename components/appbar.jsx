@@ -11,12 +11,11 @@ const IconWrapper = ({ name, size, color }) => (
 const AppBar = () => {
     return (
         <View style={styles.appbar}>
-            <IconWrapper name="search" size={ICON_SIZE} color="grey" />
             <View>
-                <Text style={styles.locationText}>Location</Text>
-                <Text>Naperville, Illinois</Text>
+                <Text style={styles.locationText}>Find Your</Text>
+                <Text style={styles.locationText} >Dream Furniture</Text>
             </View>
-            <IconWrapper name="bookmark-outline" size={ICON_SIZE} color="grey" />
+            <IconWrapper name="search" size={ICON_SIZE} color="grey" />
         </View>
     );
 };
@@ -33,7 +32,8 @@ const styles = StyleSheet.create({
     },
     locationText: {
         color: 'grey',
-        fontSize: 16,
+        fontSize: 30,
+        fontWeight:'bold'
     },
     iconBackground: {
         backgroundColor: 'white',

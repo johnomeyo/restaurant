@@ -4,6 +4,8 @@ import AppBar from '../components/appbar.jsx'
 import OfferCard from '../components/offer_card.jsx'
 import CategoriesSection from '../components/categories_section.jsx'
 import RecommendedSection from '../components/recommended-section.jsx'
+import CategorySelector from '../components/CategorySelector.jsx';
+import ItemCard from '../components/ItemCard.jsx';
 
 const Homepage = () => {
     return (
@@ -11,8 +13,13 @@ const Homepage = () => {
             <ScrollView contentContainerStyle={styles.container}>
                 <AppBar />
                 <OfferCard />
-                <CategoriesSection />
-                < RecommendedSection />
+                <CategorySelector />
+                <ScrollView horizontal contentContainerStyle={styles.scrollAxis}>
+                    <ItemCard />
+                    <ItemCard />
+                    <ItemCard />
+                    <ItemCard />
+                </ScrollView>
             </ScrollView>
         </SafeAreaView>
     );
@@ -21,7 +28,10 @@ const Homepage = () => {
 const styles = StyleSheet.create({
     safeArea: {
         flex: 1,
-
+    },
+    scrollAxis: {
+        marginHorizontal: 16,
+        marginVertical: 10
     },
     container: {
         flexGrow: 1,

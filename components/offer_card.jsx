@@ -1,42 +1,48 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native';
-import CustomButton from './custom-btn';
 
 const OfferCard = () => {
     return (
         <View style={styles.container}>
-            <View>
-                <Text style={styles.freeText}>{"Free Delivery For\nSpaghetti"}</Text>
-                <Text style={styles.uptoText}>Upto 3 times a day</Text>
-                <CustomButton />
+            <View style={styles.text}>
+                <Text style={styles.freeText}>{"20% OFF"}</Text>
+                <Text style={styles.uptoText}>Until 24 Dec</Text>
             </View>
-            <Image source={{ uri: 'https://img.icons8.com/?size=100&id=P3AWPy5QyOIa&format=png&color=000000' }}
-                style={{ width: 150, height: 150 }}
+            <Image source={{ uri: 'https://img.icons8.com/?size=100&id=CnSNqm9PSk6K&format=png&color=000000' }}
+                style={styles.image}
             />
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+    text: {
+        justifyContent: 'center',
+    },
+    image: {
+        width: 150,
+        height: 150
+    },
     container: {
-        marginVertical: 20,
+        marginVertical: 35,
         marginHorizontal: 16,
         borderRadius: 10,
-        paddingLeft: 16,
-        paddingVertical: 10,
-        backgroundColor: 'black',
+        paddingLeft: 26,
+        paddingVertical: 20,
+        backgroundColor: '#bbe2dd',
         flexDirection: 'row',
         justifyContent: 'space-between'
 
     },
     freeText: {
-        color: 'white',
         fontSize: 30,
         fontWeight: 'bold',
         marginBottom: 10,
+        textAlign: 'center'
+
     },
     uptoText: {
-        color: 'white',
+
         marginBottom: 20,
     },
     button: {
